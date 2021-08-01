@@ -30,16 +30,16 @@
 - name: Clonando o REPO
   git:
     repo: "{{ git_repo }}"
-    dest: /tmp/awx
+    dest: /tmp/ansible/
     force: yes
 - name: Create file
   file:
-    path: /tmp/awx/installer/inventoryng
+    path: /tmp/ansible/awx/installer/inventoryng
     state: touch
 
 - name: Insert/Update inventoryng
   blockinfile:
-    path: /tmp/awx/installer/inventoryng
+    path: /tmp/ansible/awx/installer/inventoryng
     block: |
       #Gerado Via Ansible
       localhost ansible_connection=local ansible_python_interpreter="/usr/bin/env python3"
